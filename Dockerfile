@@ -1,5 +1,6 @@
 FROM openresty/openresty:alpine-fat
 
+# Necessary openresty packages
 RUN opm get c64bob/lua-resty-aes
 RUN opm get ledgetech/lua-resty-http
 RUN opm get SkyLothar/lua-resty-jwt
