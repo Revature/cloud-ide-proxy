@@ -1,6 +1,8 @@
 name: Cross Repo Trigger Test
 
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
 
 jobs:
     build:
@@ -14,7 +16,14 @@ jobs:
             SERVICE="cloud-ide-proxy"
             VERSION="${{ github.sha }}"
             BRANCH="${{ github.ref_name }}"
-    
+
+            echo $REPO_OWNER
+            echo $REPO_NAME
+            echo $EVENT_TYPE
+            echo $SERVICE
+            echo $VERSION
+            echo $BRANCH
+
             curl -L \
               -X POST \
               -H "Accept: application/vnd.github+json" \
